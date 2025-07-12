@@ -1,0 +1,18 @@
+<button id="incr">
+  Increment Number
+</button>
+
+<script>
+import { actions } from "astro:actions"
+
+  const incrBtn = document.getElementById("incr") as HTMLButtonElement
+
+  incrBtn.addEventListener("click", async (e) => {
+    e.preventDefault()
+    const {data, error } = await actions.incr({incr : 1})
+
+    if (!error) {
+      alert(data)
+    }
+  })
+</script>
